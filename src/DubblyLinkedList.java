@@ -120,4 +120,65 @@ public class DubblyLinkedList {
 		}
 		return outputStr;
 	}
+	
+	public void remove(int id)
+	{
+		if(size > 0)
+		{
+			if(tail != null && head != null)
+			{
+				if(id <= 0)
+				{
+					id = 0;
+					tail = tail.getNext(1);
+				}
+				else if(id >= size)
+				{
+					id = size - 1;
+					head = head.getPrev(1);
+				}	
+				else
+				{
+					DubblyLinkedNode node = getNode(id - 1);
+					DubblyLinkedNode nextNode = node.getNext(2);
+					if(nextNode != null) {
+						node.next = nextNode;
+						nextNode.prev = node;
+					}
+				}
+				size--;
+			}
+		}			
+	}
+	
+	public void removeFirstOccurrence(String str)
+	{
+		int i = 0;
+		DubblyLinkedNode currentNode = tail;
+		while(i < size)
+		{
+			if(str.equals(currentNode.str))
+			{
+				remove(i);
+				/*
+				size--;
+				if(size > 0)
+				{
+					if(i == size - 1)
+						head = currentNode.prev;
+					if(i == 0)
+						tail = currentNode.next;
+				}else
+				{
+					head = null;
+					tail = null;
+				}
+				remove(i);
+				*/
+				break;
+			}
+			currentNode = currentNode.next;
+			i++;
+		}
+	}
 }

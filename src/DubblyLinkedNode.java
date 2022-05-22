@@ -32,4 +32,32 @@ public class DubblyLinkedNode {
 		prev = tailNode;
 		return tailNode;
 	}
+	
+	public DubblyLinkedNode getNext(int offset)
+	{
+		int i = 0;
+		DubblyLinkedNode currentNode = this;
+		while(i < offset)
+		{
+			if(currentNode.next == null)
+				return null;
+			currentNode = currentNode.next;
+			i++;
+		}
+		return currentNode;
+	}
+	
+	public DubblyLinkedNode getPrev(int offset)
+	{
+		int i = 0;
+		DubblyLinkedNode currentNode = this;
+		while(i < offset)
+		{
+			if(currentNode.prev == null)
+				return null;
+			currentNode = currentNode.prev;
+			i++;
+		}
+		return currentNode;
+	}
 }

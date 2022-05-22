@@ -31,6 +31,7 @@ public class Source {
 	private JTextField textField_AddElementID;
 	private JTextField textField_inputStr;
 	private JTextField textField_ShowElementID;
+	private JTextField textField_ElementToRemove;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -65,13 +66,13 @@ public class Source {
 		
 		JCheckBox chckbxReversed = new JCheckBox("Reversed");
 		chckbxReversed.setBackground(Color.WHITE);
-		chckbxReversed.setBounds(681, 93, 97, 23);
+		chckbxReversed.setBounds(682, 28, 97, 23);
 		frame.getContentPane().add(chckbxReversed);
 		
 		JButton btnShowList = new JButton("Show list");
 		btnShowList.setBackground(Color.WHITE);
 		btnShowList.setIcon(null);
-		btnShowList.setBounds(586, 93, 89, 23);
+		btnShowList.setBounds(587, 28, 89, 23);
 		btnShowList.addActionListener(new ActionListener() {
 
 			@Override
@@ -88,7 +89,7 @@ public class Source {
 		
 		JButton btnAddHead = new JButton("Add head");
 		btnAddHead.setBackground(Color.WHITE);
-		btnAddHead.setBounds(647, 213, 89, 23);
+		btnAddHead.setBounds(648, 130, 89, 23);
 		frame.getContentPane().add(btnAddHead);
 		
 		btnAddHead.addActionListener(new ActionListener() {
@@ -112,17 +113,23 @@ public class Source {
 				String outputStr = "";
 				
 				list.addTail(textField_inputStr.getText());
-				
+				/*
+				if(list.size > 0)
+				{
+					list.remove(-4);
+					list.size--;
+				}			
+				*/
 				outputStr = list.getListElementsString(chckbxReversed.isSelected());
 				textArea.setText(outputStr);
 			}
 		});
-		btnAddTail.setBounds(647, 247, 89, 23);
+		btnAddTail.setBounds(648, 164, 89, 23);
 		frame.getContentPane().add(btnAddTail);
 		
 		textField_AddElementID = new JTextField();
 		textField_AddElementID.setBackground(Color.WHITE);
-		textField_AddElementID.setBounds(612, 296, 86, 20);
+		textField_AddElementID.setBounds(613, 213, 86, 20);
 		frame.getContentPane().add(textField_AddElementID);
 		textField_AddElementID.setColumns(10);
 		
@@ -138,25 +145,25 @@ public class Source {
 				textArea.setText(outputStr);
 			}
 		});
-		btnInsert.setBounds(705, 295, 89, 23);
+		btnInsert.setBounds(706, 212, 89, 23);
 		frame.getContentPane().add(btnInsert);
 		
 
 		
 		textField_inputStr = new JTextField();
 		textField_inputStr.setBackground(Color.WHITE);
-		textField_inputStr.setBounds(650, 182, 86, 20);
+		textField_inputStr.setBounds(651, 99, 86, 20);
 		frame.getContentPane().add(textField_inputStr);
 		textField_inputStr.setColumns(10);
 		
 		textField_ShowElementID = new JTextField();
-		textField_ShowElementID.setBounds(650, 365, 86, 20);
+		textField_ShowElementID.setBounds(651, 282, 86, 20);
 		frame.getContentPane().add(textField_ShowElementID);
 		textField_ShowElementID.setColumns(10);
 		
 		JButton btnShowElement = new JButton("Show element");
 		btnShowElement.setBackground(Color.WHITE);
-		btnShowElement.setBounds(632, 396, 124, 23);
+		btnShowElement.setBounds(633, 313, 124, 23);
 		frame.getContentPane().add(btnShowElement);
 		
 		btnShowElement.addActionListener(new ActionListener() {
@@ -192,7 +199,7 @@ public class Source {
 				textArea.setText(list.getData(id));
 			}
 		});
-		btnPrevious.setBounds(590, 430, 89, 23);
+		btnPrevious.setBounds(591, 347, 89, 23);
 		frame.getContentPane().add(btnPrevious);
 		
 		JButton btnNext = new JButton("Next");
@@ -214,42 +221,74 @@ public class Source {
 				textArea.setText(list.getData(id));
 			}
 		});
-		btnNext.setBounds(705, 430, 89, 23);
+		btnNext.setBounds(706, 347, 89, 23);
 		frame.getContentPane().add(btnNext);
 		
 		JLabel lblElementId_2 = new JLabel("Element id");
-		lblElementId_2.setBounds(590, 368, 67, 14);
+		lblElementId_2.setBounds(591, 285, 67, 14);
 		frame.getContentPane().add(lblElementId_2);
 		
 		JLabel lblShowElements = new JLabel("Show element");
 		lblShowElements.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblShowElements.setHorizontalAlignment(SwingConstants.CENTER);
-		lblShowElements.setBounds(579, 327, 224, 30);
+		lblShowElements.setBounds(580, 244, 224, 30);
 		frame.getContentPane().add(lblShowElements);
 		
 		JLabel lblAddingElements = new JLabel("Adding elements");
 		lblAddingElements.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAddingElements.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblAddingElements.setBounds(579, 141, 224, 30);
+		lblAddingElements.setBounds(580, 58, 224, 30);
 		frame.getContentPane().add(lblAddingElements);
 		
 		JLabel lblInput = new JLabel("Input");
-		lblInput.setBounds(612, 185, 67, 14);
+		lblInput.setBounds(613, 102, 67, 14);
 		frame.getContentPane().add(lblInput);
 		
 		JLabel lblElementId_1 = new JLabel("Element id");
-		lblElementId_1.setBounds(625, 276, 67, 14);
+		lblElementId_1.setBounds(626, 193, 67, 14);
 		frame.getContentPane().add(lblElementId_1);
 		
 		JLabel lblShowList = new JLabel("Show list");
 		lblShowList.setHorizontalAlignment(SwingConstants.CENTER);
 		lblShowList.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblShowList.setBounds(579, 41, 224, 30);
+		lblShowList.setBounds(580, 0, 224, 30);
 		frame.getContentPane().add(lblShowList);
 		
 		JDesktopPane desktopPane = new JDesktopPane();
 		desktopPane.setBounds(100, 269, 1, 1);
 		frame.getContentPane().add(desktopPane);
+		
+		JLabel lblFindElementId = new JLabel("Find and remove");
+		lblFindElementId.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFindElementId.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblFindElementId.setBounds(580, 372, 224, 30);
+		frame.getContentPane().add(lblFindElementId);
+		
+		JButton btnRemove = new JButton("Remove");
+		btnRemove.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String outputStr = "";			
+				
+				
+				list.removeFirstOccurrence(textField_ElementToRemove.getText());
+				
+				outputStr = list.getListElementsString(chckbxReversed.isSelected());
+				textArea.setText(outputStr);			
+			}
+		});
+		btnRemove.setBackground(Color.WHITE);
+		btnRemove.setBounds(648, 443, 89, 23);
+		frame.getContentPane().add(btnRemove);
+		
+		textField_ElementToRemove = new JTextField();
+		textField_ElementToRemove.setColumns(10);
+		textField_ElementToRemove.setBounds(648, 412, 86, 20);
+		frame.getContentPane().add(textField_ElementToRemove);
+		
+		JLabel lblElementToRemove = new JLabel("Element");
+		lblElementToRemove.setBounds(595, 415, 67, 14);
+		frame.getContentPane().add(lblElementToRemove);
 		
 
 	}
